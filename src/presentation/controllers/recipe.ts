@@ -1,8 +1,10 @@
 export class RecipeController {
   handle (httpRequest: any): any {
-    return {
-      statusCode: 400,
-      params: new Error('Ausência de ingredientes como parâmtetros: i')
+    if (!httpRequest.params.i || httpRequest.params.i === '') {
+      return {
+        statusCode: 400,
+        params: new Error('Ausência de ingredientes como parâmtetros: i')
+      }
     }
   }
 }
