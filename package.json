@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/romario1990/api-delivery/issues"
   },
-  "homepage": "https://github.com/romario1990/api-delivery#readme"
+  "homepage": "https://github.com/romario1990/api-delivery#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^3.0.0"
+  }
 }
