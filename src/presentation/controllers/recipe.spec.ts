@@ -1,7 +1,7 @@
 import { RecipeController } from './recipe'
 
 describe('Recipe Controller', () => {
-  test('Should return 400 if no ingredients is provided', () => {
+  test('Deve retornar 400 se nenhum ingrediente for fornecido', () => {
     const recipeController = new RecipeController()
     const httpRequest = {
       params: {
@@ -10,5 +10,6 @@ describe('Recipe Controller', () => {
     }
     const httpResponse = recipeController.handle(httpRequest)
     expect(httpResponse.statusCode).toBe(400)
+    expect(httpResponse.params).toEqual(new Error('Ausência de ingredientes como parâmtetros: i'))
   })
 })
