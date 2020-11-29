@@ -10,5 +10,5 @@ export const getRecipes = async (ingredients: string): Promise<any> => {
     method: 'GET',
     url: `${BASE_URL}/?i=${ingredients}`
   })
-  return data
+  return data.data
 }
