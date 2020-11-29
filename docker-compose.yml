@@ -1,0 +1,13 @@
+version: "3.7"
+ 
+services:
+  api-delivery:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api-delivery
+    volumes:
+      - .:/app
+    ports:
+      - "5050:5050"
+    command: npm start

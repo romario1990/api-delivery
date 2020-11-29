@@ -12,7 +12,15 @@ API_EXTERNAL_GIFS=https://api.giphy.com/v1/gifs/search
 API_EXTERNAL_GIFS_KEY=pWcZJecOjjKpdmWrxVX66ZC0DkZ8p3ua
 
 ```
+### configuração docker
 
+####Criar imagem app
+- build image docker
+```docker build -t "api-delivery" .```
+- build docker-compose
+```docker-compose up --build -d```
+- executar server sem buildar
+```docker-compose up -d```
 ### Execução de teste
 
 npm test
