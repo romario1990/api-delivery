@@ -9,6 +9,6 @@ export default (router: Router): void => {
   router.get('/recipes', async (req, res) => {
     const recipeController = MakeRecipeController()
     const reponse = await recipeController.handle(req)
-    res.send(reponse)
+    res.send(reponse.body)
   })
 }

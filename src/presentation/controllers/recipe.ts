@@ -3,6 +3,7 @@ import { MissingParamError, ExceedsParameterNumberError } from './../errors'
 import { badRequest, succesRequest, serverError } from './../helpers/http-helper'
 import { Controller } from '../protocols/controller'
 import { getRecipes } from '../helpers/apis/recipes-api'
+import { getGif } from './../helpers/apis/gif-api'
 export class RecipeController implements Controller {
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
@@ -15,7 +16,14 @@ export class RecipeController implements Controller {
       }
       const dataRecipes = await getRecipes(httpRequest.query.i)
       const keywords = ingredients
-      const recipes = dataRecipes.results.map((r: { title: any, ingredients: any, href: any }) => ({ title: r.title, ingredients: r.ingredients, link: r.href, gif: '' }))
+      const recipes = await Promise.all(dataRecipes.results.map(async (r: { title: any, ingredients: any, href: any }) => {
+        const dataGif = await getGif(r.title)
+        let urlGif = 'Não foram encontrados nenhum gif'
+        if (dataGif.data && dataGif.data.length > 0) {
+          urlGif = dataGif.data[0].images.original.url
+        }
+        return { title: r.title, ingredients: r.ingredients, link: r.href, gif: urlGif }
+      }))
       return succesRequest({ keywords: keywords, recipes: recipes })
     } catch (error) {
       return serverError(error)

@@ -15,5 +15,5 @@ export const getGif = async (name: string): Promise<any> => {
       limit: 1
     }
   })
-  return data
+  return data.data
 }
