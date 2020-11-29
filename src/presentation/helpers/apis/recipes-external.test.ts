@@ -1,5 +1,4 @@
-import axios from 'axios'
-import { getRecipes } from './apis/recipes-api'
+import { getRecipes } from './recipes-api'
 
 describe('Recipes External', () => {
   test('Valida acesso API externa de receitas', async () => {
