@@ -23,7 +23,7 @@ API_EXTERNAL_GIFS_KEY=pWcZJecOjjKpdmWrxVX66ZC0DkZ8p3ua
 ```docker-compose up -d```
 ### Execução de teste
 
-npm test
+- npm test
 
 ### Execução projeto
 
