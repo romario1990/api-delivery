@@ -8,9 +8,9 @@ export class RecipeController implements Controller {
     if (!httpRequest.query.i || httpRequest.query.i === '') {
       return badRequest(new MissingParamError('i = ingredientes'))
     }
-    const Ingredients = httpRequest.query.i.split(',')
-    if (Ingredients.length > 2) {
-      return badRequest(new ExceedsParameterNumberError(Ingredients.length.toString()))
+    const ingredients = httpRequest.query.i.split(',')
+    if (ingredients.length > 2) {
+      return badRequest(new ExceedsParameterNumberError(ingredients.length.toString()))
     }
   }
 }
