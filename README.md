@@ -14,7 +14,7 @@ API_EXTERNAL_GIFS_KEY=pWcZJecOjjKpdmWrxVX66ZC0DkZ8p3ua
 ```
 ### configuração docker
 
-####Criar imagem app
+###Criar imagem app
 - build image docker
 ```docker build -t "api-delivery" .```
 - build docker-compose
